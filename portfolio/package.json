@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "ajv": "^8.17.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "reactstrap": "^9.2.3"
   }
 }
