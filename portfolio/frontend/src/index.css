@@ -5,9 +5,47 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #262626;
+}
+
+h1 {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 15px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.botui_message_content {
+  background-color: #444444;
+  color: #ffffff
+}
+
+.botui_button {
+  background: #6087ae;
+}
+
+.loading_dot {
+  background-color: #6087ae !important;
+}
+
+.botui_action textarea, .botui_action input:not([type="file"]), .botui_action select {
+  border-radius:5px;
+  color: #000000;
+}
+
+.botui_message_content.human{
+  background: #6087ae;
+}
+
+@media (width >= 600px) {
+  .botui_app_container {
+      width: 600px;
+      height: 500px;
+      margin: 0 auto;
+  }
 }
