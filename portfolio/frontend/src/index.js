@@ -3,7 +3,7 @@ import React, { useEffect } from "react"
 import { createRoot } from "react-dom/client"
 import { BotUI, BotUIAction, BotUIMessageList } from "@botui/react"
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core'
-
+import axios from 'axios';
 
 import "@botui/react/dist/styles/default.theme.scss"
 import './index.css';
@@ -24,14 +24,28 @@ const App = () => {
       .then(() => mybot.wait({ waitTime: 500 }))
       .then(() =>
         mybot.action.set({ placeholder: 'Ask me anything' },
-          { actionType: 'input' ,
+          {
+            actionType: 'input',
             confirmButtonText: "send"
           },
         )
       )
       .then((data) => mybot.wait({ waitTime: 500 }, data))
-      .then((data) => mybot.message.add({ text: `${data.text}` })
-      ).then((data) => console.log(data.text))
+      .then(function (data) {
+        mybot.message.add({ text: `${data.text}` }, data)
+        axios.post('http://localhost:8000/api/usermessages/', {
+          message: `${data.text}`
+        })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
+      )
+
+
   }, [])
 
   return (

@@ -6,6 +6,7 @@
   "dependencies": {
     "@botui/react": "^1.1.1",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "axios": "^1.7.9",
     "botui": "^1.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -14,6 +15,7 @@
     "@parcel/transformer-sass": "^2.7.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "buffer": "^6.0.3",
     "parcel": "^2.7.0",
     "process": "^0.11.10"
   }
