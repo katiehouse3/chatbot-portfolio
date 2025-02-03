@@ -13,6 +13,28 @@ const glasses = findIconDefinition({ prefix: 'fas', iconName: 'glasses' })
 
 const mybot = createBot()
 
+function chatbotLoop() {
+  mybot.action.set({ placeholder: 'Ask me anything' },
+    {
+      actionType: 'input',
+      confirmButtonText: "send"
+    },
+  ).then(function (data) {
+    var data;
+    mybot.wait()
+    axios.post('http://localhost:8000/api/botmessages/', {query: data.text})
+      .then(function (response) {
+        console.log(response.data.response)
+        mybot.next()
+        mybot.message.add({ text: `${response.data.response}` }, data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  })
+  setTimeout(chatbotLoop, 1000); 
+}
+
 const App = () => {
   useEffect(() => {
     mybot.message
@@ -22,28 +44,7 @@ const App = () => {
       .then(() => mybot.wait({ waitTime: 500 }))
       .then(() => mybot.message.add({ text: "I am a Data Scientist with experience building end-to-end machine learning solutions in generative AI, marketing funnel optimization, advisor success and more. What would you like to learn about me?" }))
       .then(() => mybot.wait({ waitTime: 500 }))
-      .then(() =>
-        mybot.action.set({ placeholder: 'Ask me anything' },
-          {
-            actionType: 'input',
-            confirmButtonText: "send"
-          },
-        )
-      )
-      .then(function (data) {
-        mybot.wait()
-        axios.post('http://localhost:8000/api/botmessages/', {query: data.text})
-          .then(function (response) {
-            console.log(response.data.response)
-            mybot.next()
-            mybot.message.add({ text: `${response.data.response}` }, data)
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-      }
-      )
-
+      .then(() => chatbotLoop())
 
   }, [])
 

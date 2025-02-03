@@ -28,7 +28,7 @@ class ChatbotMessage(APIView):
 
             prompt = f"""
             ### WHO ARE YOU
-            You are a helpful chatbot who answers questions about Katie's experience. 
+            You are a helpful chatbot who answers questions about Katie's experience in a succinct summary.
 
             ### EXPERIENCE CONTEXT
             Katie's experience is in the triple brackets below. Answer questions based on the experience.
