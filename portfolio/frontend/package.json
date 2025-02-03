@@ -7,9 +7,11 @@
     "@botui/react": "^1.1.1",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
     "botui": "^1.1.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "reactstrap": "^9.2.3"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",

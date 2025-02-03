@@ -30,14 +30,13 @@ const App = () => {
           },
         )
       )
-      .then((data) => mybot.wait({ waitTime: 500 }, data))
       .then(function (data) {
-        mybot.message.add({ text: `${data.text}` }, data)
-        axios.post('http://localhost:8000/api/usermessages/', {
-          message: `${data.text}`
-        })
+        mybot.wait()
+        axios.post('http://localhost:8000/api/botmessages/', {query: data.text})
           .then(function (response) {
-            console.log(response);
+            console.log(response.data.response)
+            mybot.next()
+            mybot.message.add({ text: `${response.data.response}` }, data)
           })
           .catch(function (error) {
             console.log(error);

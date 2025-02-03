@@ -5,12 +5,8 @@ from rest_framework import serializers
 from .models import Usermessage, Botresponse
 
 
-class UsermessageSerializer(serializers.ModelSerializer):
-
-    # create a meta class
-    class Meta:
-        model = Usermessage
-        fields = ("id", "created_at", "message")
+class UsermessageSerializer(serializers.Serializer):
+    query = serializers.CharField(max_length=500)
 
 
 class BotresponseSerializer(serializers.ModelSerializer):

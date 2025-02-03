@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     "chatportfolio",
     'corsheaders',
     'rest_framework',
+    'huggingface_hub'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +136,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:1234',
 )
+
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+HUGGINGFACE_TOKEN_API = env('HUGGINGFACE_TOKEN_API')

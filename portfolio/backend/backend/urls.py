@@ -27,10 +27,12 @@ router = routers.DefaultRouter()
 
 # register the router
 router.register(r'usermessages', views.UsermessageView, 'usermessage')
-router.register(r'botresponses', views.BotresponseView, 'botresponse')
+# router.register(r'botresponses', views.BotresponseView, 'botresponse')
+#router.register(r'botmessages', views.ChatbotMessage, 'botmessage')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/botmessages/', views.ChatbotMessage.as_view(), name="botmessage"),
 ]
