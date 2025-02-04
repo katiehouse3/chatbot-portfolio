@@ -36,7 +36,7 @@ function chatbotLoop() {
 
 const runBot = () => {
   mybot.message
-      .add({ text: "Hello" })
+      .add({ text: "Hello 👋" })
       .then(() => mybot.wait({ waitTime: 1000 }))
       .then(() => mybot.message.add({ text: "Welcome to my portfolio!" }))
       .then(() => mybot.wait({ waitTime: 500 }))
