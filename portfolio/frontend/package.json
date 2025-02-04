@@ -11,7 +11,8 @@
     "botui": "^1.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reactstrap": "^9.2.3"
+    "reactstrap": "^9.2.3",
+    "useref": "^1.4.4"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
