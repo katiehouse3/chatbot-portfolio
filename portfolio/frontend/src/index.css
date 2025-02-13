@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #262626;
+  background-color: #1e1e1e;
 }
 
 h1 {
@@ -46,6 +46,11 @@ code {
 .botui_button {
   background: #007bff;
 }
+
+.botui_action textarea, .botui_action input:not([type="file"]), .botui_action select{
+  width: 80% !important;
+}
+
 
 .loading_dot {
   background-color: #6087ae !important;

@@ -6,6 +6,8 @@
   "dependencies": {
     "@botui/react": "^1.1.1",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "botui": "^1.1.2",

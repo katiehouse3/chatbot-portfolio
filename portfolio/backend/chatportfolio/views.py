@@ -23,7 +23,6 @@ class ChatbotMessage(APIView):
         serializer = UsermessageSerializer(data=request.data)
         if serializer.is_valid():
             query = serializer.validated_data['query']
-            print(query)
             client = InferenceClient(api_key=settings.HUGGINGFACE_TOKEN_API)
 
             prompt = f"""
