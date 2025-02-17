@@ -1,17 +1,17 @@
-import { createBot } from "botui"
 import React, { useEffect } from "react"
 import { createRoot } from "react-dom/client"
 import { BotUI, BotUIAction, BotUIMessageList } from "@botui/react"
-import { findIconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { createBot } from "botui"
+import Navbar from "./navbar.js"
 
 import axios from 'axios';
 
 import "@botui/react/dist/styles/default.theme.scss"
 import './index.css';
 
-const glasses = findIconDefinition({ prefix: 'fas', iconName: 'glasses' })
+
 const airplane = <FontAwesomeIcon icon={faPaperPlane} />
 
 const mybot = createBot()
@@ -79,6 +79,7 @@ const App = () => {
 
   return (
     <div>
+      <Navbar />
       <BotUI bot={mybot}>
         <BotUIMessageList />
         <BotUIAction />
