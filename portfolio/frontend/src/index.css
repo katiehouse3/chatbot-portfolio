@@ -18,14 +18,17 @@ h1 {
 }
 
 hr {
-  border-color:#383d41; border-style:solid;
+  border-color: #383d41;
+  border-style: solid;
 }
 
 
-.header-container {
-  width: 600px;
-  margin: 0 auto;
-  padding: 10px 20px 0;
+.media {
+  align-items: center !important;
+}
+
+.div-line {
+  margin-top: 2em;
 }
 
 .profile-img {
@@ -33,9 +36,19 @@ hr {
   width: 100px;
 }
 
+button {
+  margin-right: 5px;
+  padding: 5px !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.botui_message_list {
+  padding: 0 20px 0 !important;
 }
 
 .botui_message_content {
@@ -47,7 +60,9 @@ code {
   background: #007bff;
 }
 
-.botui_action textarea, .botui_action input:not([type="file"]), .botui_action select{
+.botui_action textarea,
+.botui_action input:not([type="file"]),
+.botui_action select {
   width: 80% !important;
 }
 
@@ -56,19 +71,26 @@ code {
   background-color: #6087ae !important;
 }
 
-.botui_action textarea, .botui_action input:not([type="file"]), .botui_action select {
-  border-radius:5px;
+.botui_action textarea,
+.botui_action input:not([type="file"]),
+.botui_action select {
+  border-radius: 5px;
   color: #000000;
 }
 
-.botui_message_content.human{
+.botui_message_content.human {
   background: #1d5b9c;
 }
 
-@media (width >= 600px) {
+@media (width >=600px) {
   .botui_app_container {
-      width: 600px;
-      height: 500px;
-      margin: 0 auto;
+    width: 650px;
+    height: 500px;
+    margin: 0 auto;
+  }
+
+  .header-container {
+    width: 650px;
+    margin: 0 auto;
   }
 }

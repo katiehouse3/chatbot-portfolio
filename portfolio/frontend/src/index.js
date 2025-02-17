@@ -4,8 +4,8 @@ import { BotUI, BotUIAction, BotUIMessageList } from "@botui/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { createBot } from "botui"
+import Markdown from 'react-markdown';
 import Navbar from "./navbar.js"
-
 import axios from 'axios';
 
 import "@botui/react/dist/styles/default.theme.scss"
@@ -20,9 +20,10 @@ function getResponse(data) {
   mybot.wait()
   axios.post('http://localhost:8000/api/botmessages/', { query: data.text })
     .then(function (response) {
-      console.log(response.data.response)
+      const response_text=response.data.response.toString();
+      const response_converted = <Markdown>{response_text}</Markdown>;
       mybot.next()
-      mybot.message.add({ text: `${response.data.response}` }, data)
+      mybot.message.add({ text: response_converted }, data)
       chatbotLoop();
     })
     .catch(function (error) {
@@ -80,6 +81,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
+      <div className="div-line"> <hr /> </div>
       <BotUI bot={mybot}>
         <BotUIMessageList />
         <BotUIAction />
