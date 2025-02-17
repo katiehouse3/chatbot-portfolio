@@ -17,6 +17,10 @@ h1 {
   margin-top: 15px;
 }
 
+p {
+  margin-bottom: 0 !important;
+}
+
 hr {
   border-color: #383d41;
   border-style: solid;
@@ -38,7 +42,8 @@ hr {
 
 button {
   margin-right: 5px;
-  padding: 5px !important;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
 }
 
 code {
@@ -58,6 +63,7 @@ code {
 
 .botui_button {
   background: #007bff;
+  border-radius: 5px;
 }
 
 .botui_action textarea,
@@ -74,8 +80,12 @@ code {
 .botui_action textarea,
 .botui_action input:not([type="file"]),
 .botui_action select {
-  border-radius: 5px;
+  border-radius: 7px;
   color: #000000;
+}
+
+.botui_message_content {
+  max-width: 80% !important;
 }
 
 .botui_message_content.human {
@@ -84,13 +94,17 @@ code {
 
 @media (width >=600px) {
   .botui_app_container {
-    width: 650px;
+    width: 600px;
     height: 500px;
     margin: 0 auto;
   }
 
   .header-container {
-    width: 650px;
+    width: 600px;
     margin: 0 auto;
   }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

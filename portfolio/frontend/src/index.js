@@ -31,6 +31,21 @@ function getResponse(data) {
     })
 }
 
+function chatBotExample(){
+  mybot.action.set(
+    {
+      options: [
+        { label: 'What are some of Katie\'s skills?', value: 'What are some of Katie\'s skills?' },
+        { label: 'How much value has Katie generated at MassMutual?', value: 'How much value has Katie generated at MassMutual?' },
+      ],
+    },
+    {
+      actionType: 'select',
+      confirmButtonText: airplane
+    }
+  ).then((data) => getResponse(data))
+}
+
 function chatbotLoop() {
   mybot.action.set({ placeholder: 'Type \'example\' for sample questions or ask me anything' },
     {
@@ -41,18 +56,7 @@ function chatbotLoop() {
     .then(function (data) {
       var data;
       if (data.text.toLowerCase() == 'example') {
-        mybot.action.set(
-          {
-            options: [
-              { label: 'What are some of Katie\'s skills?', value: 'What are some of Katie\'s skills?' },
-              { label: 'How much value has Katie generated at MassMutual?', value: 'How much value has Katie generated at MassMutual?' },
-            ],
-          },
-          {
-            actionType: 'select',
-            confirmButtonText: airplane
-          }
-        ).then((data) => getResponse(data))
+        chatBotExample()
       } else {
         // Code to execute if the condition is false
         getResponse(data)
@@ -64,11 +68,11 @@ const runBot = () => {
   mybot.message
     .add({ text: "Hello 👋" })
     .then(() => mybot.wait({ waitTime: 1000 }))
-    .then(() => mybot.message.add({ text: "Welcome to my portfolio! I am a Data Scientist with experience building end-to-end machine learning solutions in generative AI, marketing funnel optimization, advisor success and more." }))
+    .then(() => mybot.message.add({ text: <Markdown>{"Welcome to my portfolio! I am a **Data Scientist** with experience building **end-to-end machine learning solutions** in generative AI, marketing funnel optimization, advisor success and more. I built this **AI chatbot** to answer questions about my experience." }</Markdown>}))
     .then(() => mybot.wait({ waitTime: 500 }))
-    .then(() => mybot.message.add({ text: "I built this AI chatbot to answer questions about my experience." }))
+    .then(() => mybot.message.add({ text: <Markdown>{"Try an example question to get started:"}</Markdown>}))
     .then(() => mybot.wait({ waitTime: 500 }))
-    .then(() => chatbotLoop(mybot))
+    .then(() => chatBotExample(mybot))
 }
 
 const App = () => {
