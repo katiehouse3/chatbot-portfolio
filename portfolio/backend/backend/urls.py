@@ -26,9 +26,7 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 
 # register the router
-router.register(r'usermessages', views.UsermessageView, 'usermessage')
-# router.register(r'botresponses', views.BotresponseView, 'botresponse')
-#router.register(r'botmessages', views.ChatbotMessage, 'botmessage')
+router.register(r'messages', views.MessagesView, 'messages')
 
 
 urlpatterns = [

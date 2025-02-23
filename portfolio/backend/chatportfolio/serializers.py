@@ -2,16 +2,16 @@
 from rest_framework import serializers
 
 # import the todo data model
-from .models import Usermessage, Botresponse
+from .models import Messages
 
-
-class UsermessageSerializer(serializers.Serializer):
+class ChatbotMessageSerializer(serializers.Serializer):
     query = serializers.CharField(max_length=500)
 
 
-class BotresponseSerializer(serializers.ModelSerializer):
+
+class MessagesSerializer(serializers.ModelSerializer):
 
     # create a meta class
     class Meta:
-        model = Botresponse
-        fields = ("id", "created_at", "message_id", "response")
+        model = Messages
+        fields = '__all__'

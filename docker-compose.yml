@@ -1,0 +1,36 @@
+services:
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_USER: <db_user>
+  #     POSTGRES_PASSWORD: <db_password>
+  #     POSTGRES_DB: <db_name>
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - db_data:/var/lib/postgresql/data
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    # command: python manage.py runserver 0.0.0.0:8000
+    # volumes:
+    #   - ./backend:/app
+    ports:
+      - "8000:8000"
+    # depends_on:
+    #   - db
+    # environment:
+    #   DATABASE_URL: postgres://<db_user>:<db_password>@db:5432/<db_name>
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "1234:1234"
+    # volumes:
+    #   - ./frontend:/app
+    depends_on:
+      - backend
+# volumes:
+#   db_data:

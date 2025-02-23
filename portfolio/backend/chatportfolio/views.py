@@ -8,10 +8,10 @@ from rest_framework.views import APIView
 from rest_framework import status
 
 # import the TodoSerializer from the serializer file
-from .serializers import UsermessageSerializer, BotresponseSerializer
+from .serializers import ChatbotMessageSerializer, MessagesSerializer
 
 # import the Todo model from the models file
-from .models import Usermessage, Botresponse
+from .models import Messages
 
 from .data.prompt import experience
 import os
@@ -20,7 +20,7 @@ from huggingface_hub import InferenceClient
 
 class ChatbotMessage(APIView):
     def post(self, request):
-        serializer = UsermessageSerializer(data=request.data)
+        serializer = ChatbotMessageSerializer(data=request.data)
         if serializer.is_valid():
             query = serializer.validated_data['query']
             client = InferenceClient(api_key=settings.HUGGINGFACE_TOKEN_API)
@@ -60,24 +60,13 @@ class ChatbotMessage(APIView):
     
 
 # create a class for the Todo model viewsets
-class UsermessageView(viewsets.ModelViewSet):
+class MessagesView(viewsets.ModelViewSet):
 
     # create a serializer class and
     # assign it to the TodoSerializer class
-    serializer_class = UsermessageSerializer
+    serializer_class = MessagesSerializer
 
     # define a variable and populate it
     # with the Todo list objects
-    queryset = Usermessage.objects.all()
+    queryset = Messages.objects.all()
 
-
-# create a class for the Todo model viewsets
-class BotresponseView(viewsets.ModelViewSet):
-
-    # create a serializer class and
-    # assign it to the TodoSerializer class
-    serializer_class = BotresponseSerializer
-
-    # define a variable and populate it
-    # with the Todo list objects
-    queryset = Botresponse.objects.all()
